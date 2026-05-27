@@ -1,0 +1,30 @@
+<h1 style="text-align:center">New comment</h1>
+
+
+
+<div style="width: 300px; margin:100px auto;">
+<%= form_with model: @comment do |f|%>
+
+
+
+<br>
+<%= f.label :user_id, "Author"%>
+<%= f.collection_select :user_id, @users, :id, :name%>
+
+<br>
+
+<%= f.label :article_id, "Article"%>
+<%= f.collection_select :article_id, @articles, :id, :title%>
+
+<br>
+
+<%= f.label :body%>
+<%= f.text_field :body%>
+
+<br>
+
+<%= f.submit "Send comment"%>
+
+<%end%>
+
+</div>
