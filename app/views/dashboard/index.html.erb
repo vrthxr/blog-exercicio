@@ -1,0 +1,26 @@
+<div style="text-align: center">
+    <h2>Usuários</h2>
+        <% @users.each do |user| %>
+        <p><%= user.name %> — <%= user.articles.count %> artigos</p>
+    <% end %>
+
+    <h2>Artigos</h2>
+        <% @articles.each do |article| %>
+    <p>
+        "<%= article.title %>" — por <%= article.user.name %> — <%= article.comments.count %> comentários       
+    </p>
+        <% end %>
+
+    <h2>Comentários</h2>
+        <% @comments.each do |comment| %>
+    <p>
+        "<%= comment.body %>" — por <%= comment.user.name %> no artigo "<%= comment.article.title %>"
+    </p>
+        <% end %>
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+    <%= link_to "New user", new_user_path %> -
+    <%= link_to "New article", new_article_path %> - 
+    <%= link_to "New comment", new_comment_path %>
+</div>
