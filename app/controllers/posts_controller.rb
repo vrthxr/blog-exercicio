@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authorize_user!, only: %i[edit update destroy]
 
   # GET /posts or /posts.json
   def index
@@ -69,5 +70,9 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.expect(post: [ :title, :body ])
+    end
+
+    def authorize_user!
+      redirect_to posts_path, alert: "Não autorizado." unless @post.user == current_user
     end
 end
