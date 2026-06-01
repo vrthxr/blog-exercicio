@@ -21,13 +21,17 @@ Also includes earlier exercises from the same course: a home page with hardcoded
 - Forms using `form_with` and `collection_select`
 - Dashboard with an overview of all records
 - Bootstrap layout with shared navbar partial
+- Devise authentication (sign up, login, logout)
+- Post ownership — only the author can edit or delete their own posts
+- View counter per post
 - Home page and student listing (data hardcoded, for practice)
 
 ## Models
 
 | Model | Associations |
 |---|---|
-| `User` | `has_many :articles`, `has_many :comments` |
+| `User` | `has_many :posts` |
+| `Post` | `belongs_to :user` |
 | `Article` | `belongs_to :user`, `has_many :comments` |
 | `Comment` | `belongs_to :user`, `belongs_to :article` |
 
@@ -35,11 +39,12 @@ Also includes earlier exercises from the same course: a home page with hardcoded
 
 | Route | Description |
 |---|---|
-| `/` | Home — list of posts |
+| `/` | Home |
+| `/posts` | List of posts |
+| `/posts/new` | Create a new post (requires login) |
+| `/users/sign_up` | Sign up |
+| `/users/sign_in` | Login |
 | `/student` | Student listing |
-| `/users/new` | Create a new user |
-| `/articles/new` | Create a new article |
-| `/comments/new` | Add a comment |
 | `/dashboard` | Overview of all records |
 
 ## Getting started
@@ -49,5 +54,5 @@ git clone https://github.com/vrthxr/blog-exercicio
 cd blog-exercicio
 bundle install
 rails db:create db:migrate
-rails server
+ruby bin/rails server
 ```
