@@ -3,6 +3,7 @@
     <strong>Title:</strong>
     <%= post.title %>
     <p><%=pluralize(post.views, "view")%></p>
+    <p>publicado por: <%= post.user.email %></p>
   </div>
 
   <div>
