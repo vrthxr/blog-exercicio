@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 style="text-align:center;">Informações dos Estudantes</h1>
+  <hr>
+
+  <div class="accordion" id="accordionStudents">
+    <% @students.each_with_index do |student, index| %>
+      <% collapsed_class = index > 0 ? "collapsed" : "" %>
+      <% show_class = index == 0 ? "show" : "" %>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button <%= collapsed_class %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= index %>" aria-controls="collapse<%= index %>">
+            <%= student[:name] %>
+          </button>
+        </h2>
+        <div id="collapse<%= index %>" class="accordion-collapse collapse <%= show_class %>" data-bs-parent="#accordionStudents">
+          <div class="accordion-body">
+            <%= student[:age] %> anos - O aluno cursa: <%= student[:course] %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <hr>
+  <p style="text-align:center; font-size: 1.5rem;"><%= link_to "Home", home_path %></p>
+</div>
