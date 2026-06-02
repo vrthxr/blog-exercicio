@@ -27,6 +27,7 @@ Also includes earlier exercises from the same course: a home page with hardcoded
 - Nested comments on posts with Action Text (rich text)
 - Comment ownership — only the author can edit or delete their own comments
 - Inline comment editing with Stimulus
+- Search posts by title or body using Ransack
 - Home page and student listing (data hardcoded, for practice)
 
 ## Models
@@ -50,6 +51,7 @@ Also includes earlier exercises from the same course: a home page with hardcoded
 | `/users/sign_in` | Login |
 | `/student` | Student listing |
 | `/dashboard` | Overview of all records |
+| `/search` | Search posts by title or body |
 
 ## Getting started
 
