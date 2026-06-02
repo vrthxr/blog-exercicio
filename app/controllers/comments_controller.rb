@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         format.html{redirect_to post_url(@post), notice: "Comentário Atualizado"}
       else
-        format.html{redirect_to post_url(@post), alert: "Erro na Atualização"}
+        format.html{redirect_to post_url(@post), alert: "Erro na Atualização  "}
       end
     end
   end
