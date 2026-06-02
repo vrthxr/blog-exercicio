@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   # POST /posts or /posts.json
-  def create
+    def create 
     @post = Post.new(post_params)
     @post.user = current_user
 
